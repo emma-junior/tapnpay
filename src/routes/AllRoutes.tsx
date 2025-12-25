@@ -5,6 +5,7 @@ import Login from "../features/auth/pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import DashboardLayout from "../layout/DashboardLayout";
 import Home from "../features/wallet/pages/Home";
+import AppLayout from "../layout/AppLayout";
 
 type Props = {
   children: React.ReactNode;
@@ -19,25 +20,27 @@ export function SuspenseWrapper({ children }: Props) {
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route element={<AppLayout />}>
+        <Route path="/login" element={<Login />} />
 
-      <Route
-        element={
-          <ProtectedRoute>
-            <DashboardLayout />
-          </ProtectedRoute>
-        }
-      >
         <Route
-          path="/"
           element={
-            <SuspenseWrapper>
-              <Home />
-            </SuspenseWrapper>
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
           }
-        />
+        >
+          <Route
+            path="/"
+            element={
+              <SuspenseWrapper>
+                <Home />
+              </SuspenseWrapper>
+            }
+          />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

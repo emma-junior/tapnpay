@@ -1,4 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
 @import "tailwindcss";
 
-:root {
+@theme inline {
+  --color-primary-color: #5732bf;
+  --color-primary-text: #191919;
+  --color-primary-white: #fff;
+  --color-primary-red: #b83232;
+  --color-secondary-red: #b83232;
+  --color-primary-red-background: #fff6f6;
+  --color-primary-green: #4da66b;
+  --color-secondary-green: #289b4f;
+  --color-active-color: #6f45e9;
+  --color-primary-grey: #78838d;
+  --color-secondary-grey: #e1e3ed;
+
+  --font-family-sora: "Sora", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-family-sora;
+  }
 }
