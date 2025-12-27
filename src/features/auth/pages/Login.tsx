@@ -9,6 +9,7 @@ import type { LoginErrorType } from "../../../model/types";
 import Button from "../../../components/ui/Button";
 import OtherAuthMethods from "../components/OtherAuthMethods";
 import PasswordInput from "../../../components/ui/PasswordInput";
+import { isValidPassword, isValidPhoneNumber } from "../../../utils/helpers";
 
 const Login = () => {
   const [loginStep, setLoginStep] = useState<string>("mobileNum");
@@ -21,10 +22,16 @@ const Login = () => {
     if (!inputMobileNumber) {
       setErrors({
         ...errors,
-        phoneNum: "enter mobile number",
+        phoneNum: "Phone number is required",
+      });
+    } else if (!isValidPhoneNumber(inputMobileNumber)) {
+      setErrors({
+        ...errors,
+        phoneNum: "Phone number must be 10 digits",
       });
     } else {
       setLoginStep("password");
+      setErrors({});
     }
   };
 
@@ -32,7 +39,13 @@ const Login = () => {
     if (!inputPassword) {
       setErrors({
         ...errors,
-        password: "enter password",
+        password: "Password is required",
+      });
+    } else if (!isValidPassword(inputPassword)) {
+      setErrors({
+        ...errors,
+        password:
+          "Password must be at least 8 characters long and contain at least one symbol, one number, one uppercase letter, and one lowercase letter",
       });
     } else {
       if (inputMobileNumber && inputPassword) {
@@ -108,7 +121,7 @@ const Login = () => {
             </p>
             <div className="mb-7 mt-32">
               <Button variant="btn-primary" onClick={handleLogin}>
-                Continue
+                Login
               </Button>
             </div>
           </div>
