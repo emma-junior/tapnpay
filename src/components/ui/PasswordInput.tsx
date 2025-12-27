@@ -1,28 +1,36 @@
 import { useState } from "react";
 import passwordHidden from "../../assets/password-hidden.svg";
 import passwordshown from "../../assets/password-shown.svg";
-import type { LoginErrorType } from "../../model/types";
 
 interface passwordFormProps {
-  errors: LoginErrorType;
-  inputPassword: string;
-  setInputPassword: React.Dispatch<React.SetStateAction<string>>;
+  error?: string;
+  value?: string;
+  label: string;
+  placeholder: string;
+  onChange?: any;
 }
 
 const PasswordInput = ({
-  inputPassword,
-  setInputPassword,
+  error,
+  value,
+  label,
+  placeholder,
+  onChange,
 }: passwordFormProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  console.log(error);
   return (
     <div>
-      <label className="text-[0.8rem] text-primary-black">Password</label>
+      <label className="text-[0.8rem] text-primary-black capitalize">
+        {label}
+      </label>
       <div className="flex items-center border-2 border-solid border-secondary-grey rounded-md h-11.25 relative">
         <input
           type={isPasswordVisible ? "text" : "password"}
-          value={inputPassword}
-          onChange={(e) => setInputPassword(e.target.value)}
-          placeholder="Enter your password"
+          name={label}
+          value={value}
+          onChange={(e) => onChange(e)}
+          placeholder={placeholder}
           className="w-full h-full pl-5 outline-none"
         />
         <img

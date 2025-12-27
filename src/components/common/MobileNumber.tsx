@@ -1,9 +1,8 @@
 import { type telCodesType } from "../../data/telcodes";
-import type { LoginErrorType } from "../../model/types";
 import arrowDown from "../../assets/arrow-down.png";
 
 interface mobileNumProps {
-  errors: LoginErrorType;
+  error?: string;
   telCode: telCodesType;
   setTelCode: React.Dispatch<React.SetStateAction<telCodesType>>;
   inputMobileNumber: string;
@@ -11,10 +10,12 @@ interface mobileNumProps {
 }
 
 const MobileNumber = ({
+  error,
   telCode,
   inputMobileNumber,
   setInputMobileNumber,
 }: mobileNumProps) => {
+  console.log(error);
   return (
     <div>
       <label className="text-[0.8rem] text-primary-black">Mobile number</label>

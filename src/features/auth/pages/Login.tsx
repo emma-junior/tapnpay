@@ -8,7 +8,7 @@ import MobileNumber from "../../../components/common/MobileNumber";
 import type { LoginErrorType } from "../../../model/types";
 import Button from "../../../components/ui/Button";
 import OtherAuthMethods from "../components/OtherAuthMethods";
-import PasswordInput from "../../../components/common/PasswordInput";
+import PasswordInput from "../../../components/ui/PasswordInput";
 
 const Login = () => {
   const [loginStep, setLoginStep] = useState<string>("mobileNum");
@@ -39,6 +39,10 @@ const Login = () => {
         console.log("Login successful");
       }
     }
+  };
+
+  const handleChangePassword = (e: any) => {
+    setInputPassword(e.target.value);
   };
 
   return (
@@ -74,7 +78,7 @@ const Login = () => {
                 Enter your <br /> mobile number
               </h2>
               <MobileNumber
-                errors={errors}
+                error={errors.phoneNum}
                 telCode={telCode}
                 setTelCode={setTelCode}
                 inputMobileNumber={inputMobileNumber}
@@ -93,9 +97,11 @@ const Login = () => {
           <div>
             <h2 className="heading-1 mt-2 mb-5.5">Enter your password</h2>
             <PasswordInput
-              errors={errors}
-              inputPassword={inputPassword}
-              setInputPassword={setInputPassword}
+              error={errors.password}
+              label="password"
+              placeholder="Enter your password"
+              value={inputPassword}
+              onChange={handleChangePassword}
             />
             <p className="mt-4 flex justify-end text-primary-color text-sm font-semibold">
               Forgot password?

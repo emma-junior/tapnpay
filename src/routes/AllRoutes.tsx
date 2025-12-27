@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import DashboardLayout from "../layout/DashboardLayout";
 import Home from "../features/wallet/pages/Home";
 import AppLayout from "../layout/AppLayout";
+import CreateAccount from "../features/auth/pages/CreateAccount";
 
 type Props = {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ const AllRoutes = () => {
     <Routes>
       <Route element={<AppLayout />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/create-account" element={<CreateAccount />} />
 
         <Route
           element={
