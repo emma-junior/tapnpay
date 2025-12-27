@@ -18,7 +18,6 @@ const PasswordInput = ({
   onChange,
 }: passwordFormProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  console.log(error);
   return (
     <div>
       <label className="text-[0.8rem] text-primary-black capitalize">

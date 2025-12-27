@@ -10,6 +10,8 @@ import Button from "../../../components/ui/Button";
 import OtherAuthMethods from "../components/OtherAuthMethods";
 import PasswordInput from "../../../components/ui/PasswordInput";
 import { isValidPassword, isValidPhoneNumber } from "../../../utils/helpers";
+import Modal from "../../../components/common/Modal";
+import ForgotPassword from "../components/ForgotPassword";
 
 const Login = () => {
   const [loginStep, setLoginStep] = useState<string>("mobileNum");
@@ -17,6 +19,8 @@ const Login = () => {
   const [inputMobileNumber, setInputMobileNumber] = useState<string>("");
   const [inputPassword, setInputPassword] = useState<string>("");
   const [errors, setErrors] = useState<LoginErrorType>({});
+
+  const [showModal, setShowModal] = useState<boolean>(true);
 
   const handleContinue = () => {
     if (!inputMobileNumber) {
@@ -59,7 +63,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white h-screen xl:h-[98.5vh] overflow-scroll no-scrollbar">
+    <div className="bg-primary-white h-screen xl:h-[98.5vh] overflow-scroll no-scrollbar">
       <div className="bg-light-background h-[55%] py-4 relative">
         {loginStep === "password" && (
           <button
@@ -116,9 +120,12 @@ const Login = () => {
               value={inputPassword}
               onChange={handleChangePassword}
             />
-            <p className="mt-4 flex justify-end text-primary-color text-sm font-semibold">
+            <button
+              onClick={() => setShowModal(true)}
+              className="mt-4 flex w-full justify-end text-primary-color text-sm font-semibold"
+            >
               Forgot password?
-            </p>
+            </button>
             <div className="mb-7 mt-32">
               <Button variant="btn-primary" onClick={handleLogin}>
                 Login
@@ -127,6 +134,9 @@ const Login = () => {
           </div>
         )}
       </div>
+      <Modal showModal={showModal}>
+        <ForgotPassword setShowModal={setShowModal} />
+      </Modal>
     </div>
   );
 };

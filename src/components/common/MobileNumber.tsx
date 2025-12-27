@@ -40,8 +40,6 @@ const MobileNumber = ({
     };
   }, [isDropdown, setIsDropdown]);
 
-  console.log(error);
-
   return (
     <div className="w-full">
       <label className="text-[0.8rem] text-primary-black">Mobile number</label>

@@ -7,7 +7,6 @@ interface inputProps {
 }
 
 const Input = ({ error, label, placeholder, value, onChange }: inputProps) => {
-  console.log(error);
   return (
     <div>
       <label className="text-[0.8rem] text-primary-black capitalize">
@@ -18,8 +17,11 @@ const Input = ({ error, label, placeholder, value, onChange }: inputProps) => {
         name={label}
         placeholder={placeholder}
         onChange={(e) => onChange(e)}
-        className="border-2 border-solid border-secondary-grey rounded-md h-11.25 w-full pl-5 outline-none"
+        className={`border-2 border-solid ${
+          error ? "border-primary-red" : "border-secondary-grey"
+        } rounded-md h-11.25 w-full pl-5 outline-none`}
       />
+      <p className="text-xs text-primary-red">{error}</p>
     </div>
   );
 };
