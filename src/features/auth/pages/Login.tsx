@@ -12,6 +12,9 @@ import PasswordInput from "../../../components/ui/PasswordInput";
 import { isValidPassword, isValidPhoneNumber } from "../../../utils/helpers";
 import Modal from "../../../components/common/Modal";
 import ForgotPassword from "../components/ForgotPassword";
+import CustomLoader from "../../../components/ui/CustomLoader";
+import { useAuthContext } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [loginStep, setLoginStep] = useState<string>("mobileNum");
@@ -20,7 +23,11 @@ const Login = () => {
   const [inputPassword, setInputPassword] = useState<string>("");
   const [errors, setErrors] = useState<LoginErrorType>({});
 
-  const [showModal, setShowModal] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+  const { setToken } = useAuthContext();
 
   const handleContinue = () => {
     if (!inputMobileNumber) {
@@ -53,7 +60,13 @@ const Login = () => {
       });
     } else {
       if (inputMobileNumber && inputPassword) {
-        console.log("Login successful");
+        setIsLoading(true);
+        setToken("ejk1234");
+
+        setTimeout(() => {
+          setIsLoading(false);
+          navigate("/");
+        }, 2000);
       }
     }
   };
@@ -61,7 +74,7 @@ const Login = () => {
   const handleChangePassword = (e: any) => {
     setInputPassword(e.target.value);
   };
-
+  if (isLoading) return <CustomLoader />;
   return (
     <div className="bg-primary-white h-screen xl:h-[98.5vh] overflow-scroll no-scrollbar">
       <div className="bg-light-background h-[55%] py-4 relative">

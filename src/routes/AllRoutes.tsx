@@ -7,6 +7,9 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Home from "../features/wallet/pages/Home";
 import AppLayout from "../layout/AppLayout";
 import CreateAccount from "../features/auth/pages/CreateAccount";
+import History from "../features/wallet/pages/History";
+import Cards from "../features/wallet/pages/Cards";
+import More from "../features/wallet/pages/More";
 
 type Props = {
   children: React.ReactNode;
@@ -37,6 +40,30 @@ const AllRoutes = () => {
             element={
               <SuspenseWrapper>
                 <Home />
+              </SuspenseWrapper>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <SuspenseWrapper>
+                <History />
+              </SuspenseWrapper>
+            }
+          />
+          <Route
+            path="/cards"
+            element={
+              <SuspenseWrapper>
+                <Cards />
+              </SuspenseWrapper>
+            }
+          />
+          <Route
+            path="/more"
+            element={
+              <SuspenseWrapper>
+                <More />
               </SuspenseWrapper>
             }
           />
