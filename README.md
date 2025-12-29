@@ -95,11 +95,11 @@ Defined a small design system using Tailwind CSS configuration and reused base U
 
 ### Links
 
-- Live Site URL: [TapnPay](https://tapnpay.netlify.app)
+- Live Site URL: [TapnPay](https://tapnpay.netlify.app/)
 
 ### Screenshot
 
-![sneakersville_home_page](/public/screenshots/tapnpay-home.png)
+![tapnpay_home_page](./public/screenshots/tapnpay-home.png)
 
-![sneakersville_register_page](/public/screenshots/tapnpay-login.png)
+![tapnpay_login_page](./public/screenshots/tapnpay-login.png)
 ```
