@@ -22,7 +22,17 @@ const TransactionCard = ({ item }: transactionCardProps) => {
         </div>
       </div>
       <div className="flex items-center space-x-2">
-        <p className="text-primary-red text-[0.8rem]">{item.amount}</p>
+        <p
+          className={`text-[0.8rem] ${
+            item.amount.startsWith("+")
+              ? "text-primary-green"
+              : item.amount.startsWith("-")
+              ? "text-primary-red"
+              : "text-primary-text"
+          }`}
+        >
+          {item.amount}
+        </p>
         <img
           className="w-[5.19px] h-[8.49px]"
           src={arrowForward}
