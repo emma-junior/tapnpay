@@ -3,9 +3,8 @@ import Navbar from "../components/common/Navbar";
 
 const DashboardLayout = () => {
   return (
-    <div className="bg-primary-white h-screen xl:h-[98.5vh] overflow-scroll no-scrollbar">
+    <div className="bg-primary-white h-screen xl:h-[98.5vh] overflow-scroll no-scrollbar pb-14">
       <Outlet />
-
       <Navbar />
     </div>
   );
