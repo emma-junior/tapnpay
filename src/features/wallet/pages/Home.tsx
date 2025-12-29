@@ -3,6 +3,7 @@ import settings from "../../../assets/settings-white.svg";
 import { DashboardActions } from "../../../data/dashboardActions";
 import LatestTransactions from "../components/LatestTransactions";
 import RecentTransfers from "../components/RecentTransfers";
+import CountUp from "react-countup";
 
 const Home = () => {
   return (
@@ -22,7 +23,22 @@ const Home = () => {
             Main balance
           </p>
           <h2 className="text-[36px] font-semibold text-primary-white text-center">
-            $14,235<span className="text-[18px] font-normal">.34</span>
+            $
+            <CountUp
+              duration={1}
+              className="counter"
+              separator=","
+              end={14235}
+            />
+            .
+            <span className="text-[18px] font-normal">
+              <CountUp
+                duration={1}
+                className="counter"
+                separator=","
+                end={34}
+              />
+            </span>
           </h2>
           <div className="mt-4.5 grid grid-cols-3">
             {DashboardActions.map((item, index) => (

@@ -1,15 +1,18 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import CustomLoader from "../components/ui/CustomLoader";
-import Login from "../features/auth/pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
-import DashboardLayout from "../layout/DashboardLayout";
-import Home from "../features/wallet/pages/Home";
-import AppLayout from "../layout/AppLayout";
-import CreateAccount from "../features/auth/pages/CreateAccount";
-import History from "../features/wallet/pages/History";
-import Cards from "../features/wallet/pages/Cards";
-import More from "../features/wallet/pages/More";
+
+const Login = React.lazy(() => import("../features/auth/pages/Login"));
+const CreateAccount = React.lazy(
+  () => import("../features/auth/pages/CreateAccount")
+);
+const AppLayout = React.lazy(() => import("../layout/AppLayout"));
+const DashboardLayout = React.lazy(() => import("../layout/DashboardLayout"));
+const Home = React.lazy(() => import("../features/wallet/pages/Home"));
+const History = React.lazy(() => import("../features/wallet/pages/History"));
+const Cards = React.lazy(() => import("../features/wallet/pages/Cards"));
+const More = React.lazy(() => import("../features/wallet/pages/More"));
 
 type Props = {
   children: React.ReactNode;

@@ -87,11 +87,15 @@ const Login = () => {
             <p className="text-primary-color text-sm font-semibold">Back</p>
           </button>
         )}
-        <img className="mx-auto w-[88.14px] h-6" src={logo} alt="logo" />
+        <img
+          className="mx-auto w-[88.14px] h-6 md:w-28 md:h-8 xl:w-[88.14px] xl:h-6"
+          src={logo}
+          alt="logo"
+        />
         <div className="flex justify-center mt-14">
           {loginStep === "mobileNum" ? (
             <img
-              className="w-[187.69px] h-[190.51px]"
+              className="w-[187.69px] h-[190.51px] md:w-56 md:h-64 xl:w-[187.69px] xl:h-[190.51px]"
               src={phone}
               alt="phone"
             />
