@@ -11,7 +11,7 @@ const OtherAuthMethods = () => {
       <div className="flex justify-between my-8">
         {authMethods.map((method) => (
           <button
-            className="w-[98.67px] h-11.25 flex justify-center items-center border-2 border-solid border-light-grey rounded-md"
+            className="w-[98.67px] xl:w-32 h-11.25 xl:h-14  flex justify-center items-center border-2 border-solid border-light-grey rounded-md"
             key={method.title}
           >
             <img className="w-6 h-6" src={method.image} alt="signin/signup" />
