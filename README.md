@@ -41,10 +41,12 @@ npm install
 
 # Start the development server
 npm run dev
+```
 
 ## 🧰 Framework Choice & Reasoning
 
 ### Framework
+
 **React** was chosen for this project because it provides:
 
 - A component-based architecture that promotes reusability
@@ -53,6 +55,7 @@ npm run dev
 - Scalability suitable for real-world, production-grade applications
 
 ### Supporting Tools
+
 - **TypeScript** – Ensures type safety, reduces runtime errors, and improves long-term maintainability
 - **Tailwind CSS** – Enables rapid UI development with consistent styling and a scalable design system
 - **Context API** – Provides predictable and centralized global state management
@@ -60,11 +63,13 @@ npm run dev
 ## 🧠 Design Decisions & Trade-offs
 
 ### Design Decisions
+
 - Adopted a modular folder structure to support scalability and maintainability
 - Created reusable UI components (e.g., buttons, inputs, layouts) to reduce duplication
 - Used centralized state management for handling shared and global application state
 
 ### Trade-offs
+
 - Prioritized client-side rendering to enable faster development and easier iteration
 - Limited reliance on third-party UI libraries to maintain full control over styling and design
 - Focused on code clarity and long-term maintainability rather than complex animations
@@ -72,6 +77,7 @@ npm run dev
 ## 🚧 Challenges Faced & Solutions
 
 ### Authentication & Route Protection
+
 **Challenge:** Preventing unauthorized access to protected pages.
 
 **Solution:**
@@ -80,6 +86,7 @@ Implemented token-based authentication and wrapped protected routes with an auth
 ---
 
 ### State Management
+
 **Challenge:** Managing shared state across multiple components.
 
 **Solution:**
@@ -88,6 +95,7 @@ Centralized global state using Context API to keep the state predictable and eas
 ---
 
 ### UI Consistency
+
 **Challenge:** Maintaining consistent colors, and typography across the app.
 
 **Solution:**
@@ -102,4 +110,3 @@ Defined a small design system using Tailwind CSS configuration and reused base U
 ![tapnpay_home_page](./public/screenshots/tapnpay-home.png)
 
 ![tapnpay_login_page](./public/screenshots/tapnpay-login.png)
-```
